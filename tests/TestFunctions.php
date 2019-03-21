@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require(dirname(__FILE__).'/src/index.php');
+require(dirname(dirname(__FILE__)).'/src/index.php');
 
 class TestFunctions extends TestCase
 {
