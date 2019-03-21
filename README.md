@@ -1,4 +1,4 @@
-# Sample PHP Website V1
+# Sample PHP Website V2
 
 Dépendances:
 - Git
