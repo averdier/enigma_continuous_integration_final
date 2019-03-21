@@ -1,8 +1,8 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require('/app/src/config.php');
-require('/app/src/functions.php');
+require(dirname(dirname(__FILE__)).'/src/config.php');
+require(dirname(dirname(__FILE__)).'/src/functions.php');
 
 class TestFunctions extends TestCase
 {
