@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  proxy:
+      image: nginx:latest
+      volumes:
+        - samplephpwebsite_site:/var/www/html/
+        - samplephpwebsite_conf:/etc/nginx/conf.d/
+      depends_on:
+        - php73
+      ports:
+        - 80:80
+
+  php73:
+    image: php:7.3-fpm
+    volumes:
+      - samplephpwebsite_site:/var/www/html/
+
+volumes:
+  samplephpwebsite_site:
+    external: true
+
+  samplephpwebsite_conf:
+    external: true
