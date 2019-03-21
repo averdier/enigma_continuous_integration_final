@@ -1,6 +1,6 @@
 job('Sample PHP website V1 Job') {
     scm {
-        git('https://github.com/averdier/enigma_jenkins_php', 'v1') {  node -> 
+        git('https://github.com/averdier/enigma_continuous_integration_final', 'v1') {  node -> 
             node / gitConfigName('rastadev')
             node / gitConfigEmail('arthur@elonet.fr')
         }
