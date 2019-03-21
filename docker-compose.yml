@@ -4,21 +4,37 @@ services:
   proxy:
       image: nginx:1.12
       volumes:
-        - samplephpwebsite_site_v2:/var/www/html/samplephpwebsite
-        - samplephpwebsite_conf_v2:/etc/nginx/conf.d/
+        - samplephpwebsite_site_v3:/var/www/html/samplephpwebsite
+        - samplephpwebsite_conf_v3:/etc/nginx/conf.d/
       depends_on:
         - php71
       ports:
         - 80:80
 
   php71:
-    image: php:7.1-fpm
+    build: php
     volumes:
-      - samplephpwebsite_site_v2:/var/www/html/samplephpwebsite
+      - samplephpwebsite_site_v3:/var/www/html/samplephpwebsite
+    depends_on:
+        - db
+
+  db:
+    image: mariadb:10.1
+    volumes:
+      - samplephpwebsite_bdd_install_v3:/docker-entrypoint-initdb.d/
+      - bdd_vol:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
 
 volumes:
-  samplephpwebsite_site_v2:
+  samplephpwebsite_site_v3:
     external: true
 
-  samplephpwebsite_conf_v2:
+  samplephpwebsite_conf_v3:
     external: true
+
+  samplephpwebsite_bdd_install_v3:
+    external: true
+  
+  bdd_vol:
+    driver: local
