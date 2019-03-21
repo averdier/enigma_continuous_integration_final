@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 
 require(dirname(dirname(__FILE__)).'/src/config.php');
-require(dirname(dirname(__FILE__)).'/src/function.php');
+require(dirname(dirname(__FILE__)).'/src/functions.php');
 
 class TestFunctions extends TestCase
 {
