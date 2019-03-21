@@ -1,4 +1,4 @@
-job('Sample PHP website V1 Job') {
+job('Sample PHP website V2 Job') {
     scm {
         git('https://github.com/averdier/enigma_continuous_integration_final', 'v2') {  node -> 
             node / gitConfigName('rastadev')
