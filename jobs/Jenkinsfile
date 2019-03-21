@@ -1,0 +1,33 @@
+pipeline {
+    agent none
+    stages {
+        stage('Cloning Git') {
+            agent any
+            steps {
+                git branch: 'v2',
+                    url: 'https://github.com/averdier/enigma_continuous_integration_final'
+                
+                dir ('src') {
+                git branch: 'v2',
+                    url: 'https://github.com/Akasam/samplephpwebsite' }
+            }
+        }
+        stage('Test') {
+            agent { 
+                docker {
+                    image 'phpunit/phpunit:latest'
+                    args "--entrypoint=''"
+                }
+            }
+            steps {
+                sh 'phpunit tests/TestFunctions.php'
+            }
+        }
+        stage('Clean') {
+            agent any
+            steps {
+                sh 'rm -r src'
+            }
+        }
+    }
+}
