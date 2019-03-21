@@ -9,6 +9,7 @@ Dépendances:
 
 Cloner le projet
 ```
+git clone -b v1 https://github.com/averdier/enigma_continuous_integration_final
 ```
 
 ## Lancer le projet
