@@ -23,5 +23,11 @@ pipeline {
                 sh 'phpunit tests/TestFunctions.php'
             }
         }
+        stage('Clean') {
+            agent any
+            steps {
+                sh 'rm -r src'
+            }
+        }
     }
 }
