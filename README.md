@@ -24,3 +24,7 @@ chmod +x start.sh
 
 ./start.sh
 ```
+
+## Jenkins
+
+Les scripts sont disponibles dans le dossier `jobs`
