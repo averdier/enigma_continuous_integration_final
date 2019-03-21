@@ -4,7 +4,7 @@ services:
   proxy:
       image: nginx:latest
       volumes:
-        - samplephpwebsite_site:/var/www/html/
+        - samplephpwebsite_site:/var/www/html/samplephpwebsite
         - samplephpwebsite_conf:/etc/nginx/conf.d/
       depends_on:
         - php73
@@ -14,7 +14,7 @@ services:
   php73:
     image: php:7.3-fpm
     volumes:
-      - samplephpwebsite_site:/var/www/html/
+      - samplephpwebsite_site:/var/www/html/samplephpwebsite
 
 volumes:
   samplephpwebsite_site:
