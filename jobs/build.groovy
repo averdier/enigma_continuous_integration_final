@@ -15,6 +15,7 @@ job('Sample PHP website V1 Job') {
         shell('docker cp "$(pwd)/tests/." temp_groovy:/site/tests/')
         shell("docker cp ./nginx/. temp_groovy:/conf")
         shell("docker rm temp_groovy")
+        shell("rm -r samplephpwebsite")
         shell('docker run -v samplephpwebsite_site:/app --rm phpunit/phpunit:latest tests/TestFunctions.php')
     }
 }
