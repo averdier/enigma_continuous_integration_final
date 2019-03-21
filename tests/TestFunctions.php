@@ -14,6 +14,6 @@ class TestFunctions extends TestCase
     public function testVersion(): void
     {
         $this->expectOutputString('v2.0');
-        siteName();
+        siteVersion();
     }
 }
